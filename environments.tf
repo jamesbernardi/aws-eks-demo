@@ -7,7 +7,7 @@ locals {
       client               = "jamesbernardi"
       department           = "demo"
       environment          = "${terraform.workspace}"
-      aws_account_id       = "941336018678"
+      aws_account_id       = ""
       eks_cluster_version  = "1.23"
       enable_cni_ipv6      = true
       min_capacity         = "3"

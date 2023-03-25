@@ -19,9 +19,8 @@ terraform {
     # All backend resources are stored in us-east-2
     region = "us-east-2"
 
-    # State buckets are named "f1-tf-state-${client_account}"
-    bucket = "f1-tf-state-941336018678"
-    key    = "forumone-eks-sandbox-infrastructure.tfstate"
+    bucket = "tf-state-"
+    key    = "eks-infrastructure.tfstate"
 
     # The locks table is the same for every account
     dynamodb_table = "TerraformLocks"
@@ -31,18 +30,18 @@ terraform {
 provider "aws" {
   region = local.workspace["region"]
   assume_role {
-    role_arn = "arn:aws:iam::941336018678:role/BuildkiteTerraformRole"
+    role_arn = "arn:aws:iam::xxx:role/BuildkiteTerraformRole"
   }
   default_tags {
     tags = local.common_tags
   }
-  allowed_account_ids = ["941336018678"]
+  allowed_account_ids = ["xxx"]
 }
 
 provider "aws" {
   alias               = "infrastructure"
   region              = "us-east-2"
-  allowed_account_ids = ["569455045079"]
+  allowed_account_ids = ["xxx"]
   default_tags {
     tags = local.common_tags
   }
