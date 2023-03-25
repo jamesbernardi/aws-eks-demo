@@ -1,0 +1,32 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: amazonlinux
+  labels:
+    name: amazonlinux
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    networking/allow-internet-egress: "true"
+    app: amazonlinux
+  name: amazonlinux
+  namespace: amazonlinux
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: amazonlinux
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: amazonlinux
+    spec:
+      containers:
+      - image: amazonlinux
+        name: amazonlinux
+        command: ["/bin/bash", "-c", "yum install -y amazon-efs-utils nc bind-utils curl mariadb && /bin/sleep 3650d"]
+      hostNetwork: true
+      dnsPolicy: Default
