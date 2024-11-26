@@ -1,11 +1,11 @@
 # Add Permissions for Forumone Developers
-resource "kubernetes_manifest" "efs-forumone-storage-role" {
+resource "kubernetes_manifest" "efs-jamesbernardi-storage-role" {
   manifest = yamldecode(<<-EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 
 metadata:
-  name: forumone-developer
+  name: jamesbernardi-developer
 
 rules:
   - apiGroups: [""]
@@ -40,7 +40,7 @@ rules:
     resources: [ingressroutes, middlewares]
     verbs: [get, watch, list, create, patch, update, delete]
 
-  - apiGroups: [forumone.com]
+  - apiGroups: [jamesbernardi.com]
     resources: [mysqlusers, mysqldatabases]
     verbs: [get, watch, list]
 

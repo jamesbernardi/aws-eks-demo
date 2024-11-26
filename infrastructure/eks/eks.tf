@@ -55,19 +55,19 @@ module "eks" {
     },
     {
       rolearn  = "arn:aws:iam::${data.aws_caller_identity.current.id}:role/${one(data.aws_iam_roles.sso_devs.names)}"
-      username = "forumone:{{SessionName}}"
-      groups   = ["forumone-developers"]
+      username = "jamesbernardi:{{SessionName}}"
+      groups   = ["jamesbernardi-developers"]
     },
     {
       rolearn  = "${aws_iam_role.buildkite-eks-role.arn}"
-      username = "forumone:{{SessionName}}"
-      groups   = ["forumone-developers"]
+      username = "jamesbernardi:{{SessionName}}"
+      groups   = ["jamesbernardi-developers"]
     },
     # only for the dev stack - this role was manually created as a test
     {
       rolearn  = "arn:aws:iam::941336018678:role/BuildkiteECRRole"
-      username = "forumone:{{SessionName}}"
-      groups   = ["forumone-developers"]
+      username = "jamesbernardi:{{SessionName}}"
+      groups   = ["jamesbernardi-developers"]
     },
   ]
 

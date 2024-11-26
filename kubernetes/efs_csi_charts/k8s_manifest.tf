@@ -16,12 +16,12 @@ resource "kubernetes_manifest" "efs-cni-role" {
 }
 
 
-resource "kubernetes_cluster_role_v1" "efs-forumone-storage-role" {
+resource "kubernetes_cluster_role_v1" "efs-jamesbernardi-storage-role" {
   manifest = {
     "apiVersion" = "rbac.authorization.k8s.io/v1"
     "kind"       = "ClusterRole"
     "metadata" = {
-      "name" = "forumone-storage"
+      "name" = "jamesbernardi-storage"
     }
     "rules" = {
       "apiGroups" = [""]

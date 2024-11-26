@@ -12,18 +12,18 @@ resource "kubernetes_manifest" "namespace-role-binding" {
     "apiVersion" = "rbac.authorization.k8s.io/v1"
     "kind"       = "RoleBinding"
     "metadata" = {
-      "name"      = "forumone-developer"
+      "name"      = "jamesbernardi-developer"
       "namespace" = "${var.namespace}"
     }
     "roleRef" = {
       "apiGroup" = "rbac.authorization.k8s.io"
       "kind"     = "ClusterRole"
-      "name"     = "forumone-developer"
+      "name"     = "jamesbernardi-developer"
     }
     "subjects" = {
       "apiGroup" = "rbac.authorization.k8s.io"
       "kind"     = "Group"
-      "name"     = "forumone-developers"
+      "name"     = "jamesbernardi-developers"
     }
   }
 }
